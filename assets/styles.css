@@ -174,17 +174,34 @@ body {
 
     .aboutMe {
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: space-around;
         font-size: 1em;
     }
 
-    .bio > h2 {
-       margin-bottom: 0;
-       margin-top: 6px;
+    .bio {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-
+    
     .bio > p {
-        margin-top: 4px;
+        align-self: flex-end;
     }
 
+    .bio > h2,
+    .bio > p {
+        margin: 0;
+        margin-top: 5px;
+    }
+}
+
+@media (max-height: 500px) {
+   .aboutMe {
+       font-size: .8em;
+   }
+
+   .header {
+       font-size: .8em;
+   }
 }
