@@ -178,9 +178,13 @@ body {
         font-size: 1em;
     }
 
-    .bio {
-        margin-bottom: 10px;
+    .bio > h2 {
+       margin-bottom: 0;
+       margin-top: 6px;
     }
 
+    .bio > p {
+        margin-top: 4px;
+    }
 
 }
