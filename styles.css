@@ -12,13 +12,13 @@ body {
 
 .container {
     display: grid;
-/*    grid-gap: 10px;*/
     height: 100%;
     grid-template-columns: repeat(5, 1fr);
     grid-template-areas: "h h h h s"
                          "b b b b s"
                          "f f f f s";
     grid-template-rows: 10vh 1fr 5vh;
+    background-color: #292929;
 }
 
 .header {
@@ -41,6 +41,7 @@ body {
     background-color: rgb(51, 51, 51);
     grid-area: b;
     padding: 5vh 5vw;
+    border-radius: 0 20px 20px 0;
 }
 
 .footer {
@@ -52,10 +53,15 @@ body {
     margin-right: 2em;
 }
 
+.navbar {
+    margin-right: 8px;
+}
+
 .sidenav {
     display: flex;
     flex-direction: column;
-    padding-right: 5vw;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 .sidenav > a {
     margin-left: 10px;
@@ -73,6 +79,7 @@ body {
 
 .copyright {
     font-style: normal;
+    margin-right: 8px;
 }
 
 .active {

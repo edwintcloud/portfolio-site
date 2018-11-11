@@ -32,6 +32,7 @@ async function loadSubview(view) {
 
 function hideSidebar() {
   const gridDiv = document.querySelector('.container');
+  const bodyDiv = document.querySelector('.body');
 
   // Hide text in sidebar so it doesn't look weird animating
   document.querySelector('.sidebar').style.fontSize = "0"
@@ -59,6 +60,7 @@ function showSidebar() {
   if(document.querySelector('#portfolio').classList.contains('active')) return;
 
   const gridDiv = document.querySelector('.container');
+  const bodyDiv = document.querySelector('.body');
 
   // Set counter and interval
   let counter = 0;
