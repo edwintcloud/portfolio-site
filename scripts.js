@@ -27,5 +27,5 @@ async function loadSubview(view) {
   document.querySelectorAll('.sidenav > a').forEach(el => {
     el.classList.remove('active');
   });
-  document.querySelector(`.sidenav > a#${page}`).classList.add('active');
+  document.querySelector(`.sidenav > a#${view}`).classList.add('active');
 }
