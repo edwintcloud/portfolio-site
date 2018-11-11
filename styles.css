@@ -84,6 +84,27 @@ body {
     color: white;
 }
 
+
+.dot {
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+}
+
+.dot.filled {
+    background-color: white;
+}
+
+.dot:not(:last-child) {
+    margin-right: 8px;
+}
+
+.pagination {
+    display: none;
+    padding: 8px 0;
+}
+
 @media (max-width: 700px) {
     .container {
         grid-template-areas: "h h h s s"
@@ -93,4 +114,13 @@ body {
     .navbar > a:not(:last-child) {
         margin-right: 5px;
     }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .pagination {
+        display: flex;
+    }
+
 }

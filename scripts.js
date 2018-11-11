@@ -1,3 +1,30 @@
+// Handle swipes left and right to change pages
+const bodySection = document.querySelector('.body');
+let touchX = null;
+bodySection.addEventListener('touchstart', function (e) {
+  touchX = e.touches[0].screenX;
+});
+bodySection.addEventListener('touchend', function(e) {
+  if(touchX - e.changedTouches[0].screenX >= 50) {
+    const pages = document.querySelectorAll('.navbar > a');
+    for(var i = 0, l = pages.length;i < l-1; i++) {
+      if(pages[i].classList.contains('active')) {
+        loadPage(pages[i+1].id);
+        hideSidebar();
+      }
+    }
+  } else if(e.changedTouches[0].screenX -  touchX >= 50) {
+    const pages = document.querySelectorAll('.navbar > a');
+    for(var i = pages.length-1;i >= 1; i--) {
+      if(pages[i].classList.contains('active')) {
+        loadPage(pages[i-1].id);
+      }
+    }
+    if(pages[1].classList.contains('active')) showSidebar();
+  }
+  touchX = null;
+});
+
 /**
  * @param  {String} url - url for context to be fetched from
  * @return  {String} - the resulting HTML string fragment
@@ -15,7 +42,11 @@ async function loadPage(page) {
   document.querySelectorAll('a').forEach(el => {
     el.classList.remove('active');
   });
+  document.querySelectorAll('.dot').forEach(el => {
+    el.classList.remove('filled');
+  });
   document.querySelector(`a#${page}`).classList.add('active');
+  document.querySelector(`#dot-${page}`).classList.add('filled');
 }
 
 /**
@@ -30,6 +61,8 @@ async function loadSubview(view) {
   document.querySelector(`.sidenav > a#${view}`).classList.add('active');
 }
 
+
+// Hides sidebar with slide right animation
 function hideSidebar() {
   const gridDiv = document.querySelector('.container');
   const bodyDiv = document.querySelector('.body');
@@ -62,6 +95,7 @@ function hideSidebar() {
   }
 }
 
+// Shows sidebar with slide left animation
 function showSidebar() {
 
   // Make sure we aren't already on portfolio page
