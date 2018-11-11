@@ -10,25 +10,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body onload="loadPage('portfolio');">
     <div class="container">
         <section class="header">
             <nav class="navbar">
-                <a>Portfolio</a>
-                <a>About</a>
-                <a>Contact</a>
+                <a id="portfolio" onclick="loadPage(this.id);">Portfolio</a>
+                <a id="about" onclick="loadPage(this.id);">About</a>
+                <a id="contact" onclick="loadPage(this.id);">Contact</a>
             </nav>
         </section>
         <section class="sidebar">
             <nav class="sidenav">
-                <a>Project 1</a>
-                <a>Project 2</a>
-                <a>Project 3</a>
+                <a id="project-1" onclick="loadSubview(this.id);">Project 1</a>
+                <a id="project-2" onclick="loadSubview(this.id);">Project 2</a>
+                <a id="project-3" onclick="loadSubview(this.id);">Project 3</a>
             </nav>
         </section>
         <section class="body">
             <div class="content">
-                Hello
+                <!-- This content is loaded by javascript -->
             </div>
         </section>
         <section class="footer">

@@ -74,3 +74,7 @@ body {
 .copyright {
     font-style: normal;
 }
+
+.active {
+    color: white;
+}
