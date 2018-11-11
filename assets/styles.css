@@ -105,6 +105,55 @@ body {
     padding: 8px 0;
 }
 
+.aboutPic {
+    border-radius: 50%;
+    max-width: 50%;
+    width: 40vh;
+}
+
+.aboutMe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75vh;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.bio {
+    margin-left: 10px;
+}
+
+.contactMe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
+
+.email {
+    margin-bottom: 30px;
+    font-size: 1.5em;
+}
+
+.emailBtn {
+    background-color: rgba(6, 39, 64, .7);
+    color: aliceblue;
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.5em;
+}
+
+.emailBtn:hover {
+    background-color: rgba(6, 39, 64, 1);
+}
+
+.emailBtn:focus {
+    outline: none;
+}
+
 @media (max-width: 700px) {
     .container {
         grid-template-areas: "h h h s s"
@@ -122,5 +171,16 @@ body {
     .pagination {
         display: flex;
     }
+
+    .aboutMe {
+        flex-direction: column;
+        justify-content: flex-start;
+        font-size: 1em;
+    }
+
+    .bio {
+        margin-top: 30px;
+    }
+
 
 }

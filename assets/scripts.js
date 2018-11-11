@@ -20,7 +20,10 @@ bodySection.addEventListener('touchend', function(e) {
         loadPage(pages[i-1].id);
       }
     }
-    if(pages[1].classList.contains('active')) showSidebar();
+    if(pages[1].classList.contains('active')) {
+      showSidebar();
+      loadSubview('project-1');
+    } 
   }
   touchX = null;
 });
@@ -70,6 +73,9 @@ function hideSidebar() {
   // Hide text in sidebar so it doesn't look weird animating
   document.querySelector('.sidebar').style.fontSize = "0"
 
+  // hide body content until the animation finishes
+  document.querySelector('.content').style.display = 'none';
+
   // Get client width of sidebar
   let sidebarWidth = document.querySelector('.sidebar').clientWidth;
   const interval = sidebarWidth / 15;
@@ -83,6 +89,7 @@ function hideSidebar() {
       } else {
         gridDiv.style.gridTemplateColumns = `1fr 1fr 1fr 1fr 0`;
       }
+      document.querySelector('.content').style.display = 'block';
       clearInterval(animation);
     } else {
       sidebarWidth -= interval;

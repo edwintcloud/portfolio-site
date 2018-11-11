@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Software Developer - Edwin Cloud</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 
-<body onload="loadPage('portfolio');">
+<body onload="hideSidebar();loadPage('about');">
     <div class="container">
         <section class="header">
             <nav class="navbar">
-                <a id="portfolio" onclick="loadPage(this.id);showSidebar();">Portfolio</a>
+                <a id="portfolio" onclick="loadPage(this.id);showSidebar();loadSubview('project-1');">Portfolio</a>
                 <a id="about" onclick="loadPage(this.id);hideSidebar();">About</a>
                 <a id="contact" onclick="loadPage(this.id);hideSidebar();">Contact</a>
             </nav>
@@ -37,6 +37,6 @@
             </cite>
         </section>
     </div>
-    <script src="scripts.js"></script>
+    <script src="assets/scripts.js"></script>
 </body>
 </html>
