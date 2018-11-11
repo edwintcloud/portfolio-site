@@ -45,11 +45,19 @@ function hideSidebar() {
   const animation = setInterval(slideRight, 15);
   function slideRight() {
     if (sidebarWidth <= 0) {
-      gridDiv.style.gridTemplateColumns = `1fr 1fr 1fr 1fr 0`;
+      if (window.matchMedia('(max-device-width: 700px)').matches) {
+        gridDiv.style.gridTemplateColumns = `1fr 1fr 1fr 0 0`;
+      } else {
+        gridDiv.style.gridTemplateColumns = `1fr 1fr 1fr 1fr 0`;
+      }
       clearInterval(animation);
     } else {
       sidebarWidth -= interval;
-      gridDiv.style.gridTemplateColumns = `1fr 1fr 1fr 1fr ${sidebarWidth}px`;
+      if (window.matchMedia('(max-device-width: 700px)').matches) {
+        gridDiv.style.gridTemplateColumns = `1fr 1fr 1fr ${sidebarWidth/2}px ${sidebarWidth/2}px`;
+      } else {
+        gridDiv.style.gridTemplateColumns = `1fr 1fr 1fr 1fr ${sidebarWidth}px`;
+      }
     }
   }
 }
@@ -76,7 +84,11 @@ function showSidebar() {
       clearInterval(animation);
     } else {
       counter += interval;
-      gridDiv.style.gridTemplateColumns = `1fr 1fr 1fr 1fr ${counter}fr`;
+      if (window.matchMedia('(max-device-width: 700px)').matches) {
+        gridDiv.style.gridTemplateColumns = `1fr 1fr 1fr ${counter}fr ${counter}fr`;
+      } else {
+        gridDiv.style.gridTemplateColumns = `1fr 1fr 1fr 1fr ${counter}fr`;
+      }
     }
   }
 }
