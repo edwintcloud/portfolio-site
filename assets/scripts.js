@@ -9,24 +9,47 @@ bodySection.addEventListener('touchend', function(e) {
     const pages = document.querySelectorAll('.navbar > a');
     for(var i = 0, l = pages.length;i < l-1; i++) {
       if(pages[i].classList.contains('active')) {
-        loadPage(pages[i+1].id);
-        hideSidebar();
+        window.location ='#' + pages[i+1].id;
       }
     }
   } else if(e.changedTouches[0].screenX -  touchX >= 50) {
     const pages = document.querySelectorAll('.navbar > a');
     for(var i = pages.length-1;i >= 1; i--) {
       if(pages[i].classList.contains('active')) {
-        loadPage(pages[i-1].id);
+        window.location = '#' + pages[i-1].id;
       }
     }
     if(pages[1].classList.contains('active')) {
-      showSidebar();
-      loadSubview('project-1');
+      window.location ='#portfolio#project-1';
     } 
   }
   touchX = null;
 });
+
+// Detect hash change
+window.onhashchange = function(e) {
+  const hashes = e.newURL.split('#');
+  if(hashes[1] == 'portfolio') {
+    loadPage(hashes[1]);
+    showSidebar();
+    if(hashes[2]) {
+      loadSubview(hashes[2]);
+    } else {
+      loadSubview('project-1');
+    }
+  } else if(hashes[1] == 'about' || hashes[1] == 'contact') {
+    loadPage(hashes[1]);
+    hideSidebar();
+  }
+}
+
+// if we end up on blank page, redirect to about
+setInterval(function() {
+  if(document.querySelector('.content').innerHTML.indexOf('Please wait...') !== -1) {
+    window.location = '';
+  }
+}, 500);
+
 
 /**
  * @param  {String} url - url for context to be fetched from

@@ -13,25 +13,26 @@
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 
-<body onload="hideSidebar();loadPage('about');">
+<body onload="window.location='#about';">
     <div class="container">
         <section class="header">
             <nav class="navbar">
-                <a id="portfolio" onclick="loadPage(this.id);showSidebar();loadSubview('project-1');">Portfolio</a>
-                <a id="about" onclick="loadPage(this.id);hideSidebar();">About</a>
-                <a id="contact" onclick="loadPage(this.id);hideSidebar();">Contact</a>
+                <a id="portfolio" onclick="window.location='#portfolio#project-1';">Portfolio</a>
+                <a id="about" onclick="window.location='#about';">About</a>
+                <a id="contact" onclick="window.location='#contact';">Contact</a>
             </nav>
             <div class="pagination"><div class="dot" id="dot-portfolio"></div><div class="dot" id="dot-about"></div><div class="dot" id="dot-contact"></div></div>
         </section>
         <section class="sidebar">
             <nav class="sidenav">
-                <a id="project-1" onclick="loadSubview(this.id);">Project 1</a>
-                <a id="project-2" onclick="loadSubview(this.id);">Project 2</a>
-                <a id="project-3" onclick="loadSubview(this.id);">Project 3</a>
+                <a id="project-1" onclick="window.location='#portfolio#project-1';">Project 1</a>
+                <a id="project-2" onclick="window.location='#portfolio#project-2';">Project 2</a>
+                <a id="project-3" onclick="window.location='#portfolio#project-3';">Project 3</a>
             </nav>
         </section>
         <section class="body">
             <div class="content">
+                Please wait...
                 <!-- This content is loaded by javascript -->
             </div>
         </section>
