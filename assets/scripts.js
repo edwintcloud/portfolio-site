@@ -19,9 +19,6 @@ bodySection.addEventListener('touchend', function(e) {
         window.location = '#' + pages[i-1].id;
       }
     }
-    if(pages[1].classList.contains('active')) {
-      window.location ='#portfolio#project-1';
-    } 
   }
   touchX = null;
 });
