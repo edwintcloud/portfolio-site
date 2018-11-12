@@ -170,13 +170,12 @@ function showSidebar() {
       // Show text in sidebar
       document.querySelector('.sidebar').style.fontSize = "1em";
       document.querySelector('.content').style.display = 'block';
-      //Show side pagination
-      document.querySelector('.pagination.side').style.display = 'block';
       clearInterval(animation);
     } else {
       counter += interval;
       if (window.matchMedia('(max-device-width: 700px)').matches) {
         gridDiv.style.gridTemplateColumns = `1fr 1fr 1fr ${counter}fr ${counter}fr`;
+        document.querySelector('.pagination.side').style.display = 'flex';
       } else {
         gridDiv.style.gridTemplateColumns = `1fr 1fr 1fr 1fr ${counter}fr`;
       }
