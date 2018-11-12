@@ -242,8 +242,9 @@ body {
     .projectBtn {
         margin-bottom: 6px;
         text-align: center;
-        line-height: 3px;
+        line-height: 0;
         border-radius: 5px;
+        font-size: .8em;
     }
 }
 
