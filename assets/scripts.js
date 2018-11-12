@@ -129,7 +129,9 @@ function showSidebar() {
   if(document.querySelector('#portfolio').classList.contains('active')) return;
 
   const gridDiv = document.querySelector('.container');
-  const bodyDiv = document.querySelector('.body');
+
+  // hide body content until the animation finishes
+  document.querySelector('.content').style.display = 'none';
 
   // Set counter and interval
   let counter = 0;
@@ -142,6 +144,7 @@ function showSidebar() {
       gridDiv.style.gridTemplateColumns = `repeat(5, 1fr)`;
       // Show text in sidebar
       document.querySelector('.sidebar').style.fontSize = "1em"
+      document.querySelector('.content').style.display = 'block';
       clearInterval(animation);
     } else {
       counter += interval;

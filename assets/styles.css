@@ -146,12 +146,48 @@ body {
     font-size: 1.5em;
 }
 
-.emailBtn:hover {
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.description {
+    margin-left: 10px;
+}
+
+.projectBtn {
+    background-color: rgba(6, 39, 64, .7);
+    color: aliceblue;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1em;
+}
+
+.emailBtn:hover,
+.projectBtn:hover {
     background-color: rgba(6, 39, 64, 1);
 }
 
-.emailBtn:focus {
+.emailBtn:focus,
+.projectBtn:focus {
     outline: none;
+}
+
+.demoPic {
+    border-radius: 5px;
+    max-width: 100%;
+    max-height: 30vh;
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);
+}
+
+.description {
+    margin-bottom: 10px;
 }
 
 @media (max-width: 700px) {
@@ -172,7 +208,8 @@ body {
         display: flex;
     }
 
-    .aboutMe {
+    .aboutMe,
+    .project {
         flex-direction: column;
         justify-content: space-around;
         font-size: 1em;
@@ -194,10 +231,25 @@ body {
         margin: 0;
         margin-top: 5px;
     }
+
+    .projectBtns {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .projectBtn {
+        margin-bottom: 6px;
+        text-align: center;
+        line-height: 3px;
+        border-radius: 5px;
+    }
 }
 
 @media (max-height: 500px) {
-   .aboutMe {
+   .aboutMe,
+   .project {
        font-size: .8em;
    }
 
