@@ -8,6 +8,11 @@ body {
     font-family: sans-serif;
 }
 
+a,
+button {
+    cursor: pointer;
+}
+
 .container {
     display: grid;
     height: 100%;
@@ -188,6 +193,14 @@ body {
 
 .description {
     margin-bottom: 10px;
+}
+
+.pagination.side {
+    flex-direction: column;
+}
+
+.pagination.side > div:not(:last-child) {
+    margin-bottom: 8px;
 }
 
 @media (max-width: 700px) {

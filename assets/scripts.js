@@ -1,10 +1,13 @@
 // Handle swipes left and right to change pages
 const bodySection = document.querySelector('.body');
 let touchX = null;
+let touchY = null;
 bodySection.addEventListener('touchstart', function (e) {
   touchX = e.touches[0].screenX;
+  touchY = e.touches[0].screenY;
 });
 bodySection.addEventListener('touchend', function(e) {
+  const portfolioLink = document.getElementById('portfolio');
   if(touchX - e.changedTouches[0].screenX >= 50) {
     const pages = document.querySelectorAll('.navbar > a');
     for(var i = 0, l = pages.length;i < l-1; i++) {
@@ -19,8 +22,23 @@ bodySection.addEventListener('touchend', function(e) {
         window.location = '#' + pages[i-1].id;
       }
     }
+  } else if(touchY - e.changedTouches[0].screenY >= 50 && portfolioLink.classList.contains('active')) {
+    const views = document.querySelectorAll('.sidenav > a');
+    for(var i = 0, l = views.length;i < l-1; i++) {
+      if(views[i].classList.contains('active')) {
+        window.location ='#portfolio#' + views[i+1].id;
+      }
+    }
+  } else if(e.changedTouches[0].screenY - touchY >= 50 && portfolioLink.classList.contains('active')) {
+    const views = document.querySelectorAll('.sidenav > a');
+    for(var i = views.length-1;i >= 1; i--) {
+      if(views[i].classList.contains('active')) {
+        window.location = '#portfolio#' + views[i-1].id;
+      }
+    }
   }
   touchX = null;
+  touchY = null;
 });
 
 // Detect hash change
@@ -65,7 +83,7 @@ async function loadPage(page) {
   document.querySelectorAll('a').forEach(el => {
     el.classList.remove('active');
   });
-  document.querySelectorAll('.dot').forEach(el => {
+  document.querySelectorAll('.header .dot').forEach(el => {
     el.classList.remove('filled');
   });
   document.querySelector(`a#${page}`).classList.add('active');
@@ -81,7 +99,11 @@ async function loadSubview(view) {
   document.querySelectorAll('.sidenav > a').forEach(el => {
     el.classList.remove('active');
   });
+  document.querySelectorAll('.sidebar .dot').forEach(el => {
+    el.classList.remove('filled');
+  });
   document.querySelector(`.sidenav > a#${view}`).classList.add('active');
+  document.querySelector(`#dot-${view}`).classList.add('filled');
 }
 
 
