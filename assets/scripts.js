@@ -112,6 +112,9 @@ function hideSidebar() {
   const gridDiv = document.querySelector('.container');
   const bodyDiv = document.querySelector('.body');
 
+  //Hide side pagination
+  document.querySelector('.pagination.side').style.display = 'none';
+
   // Hide text in sidebar so it doesn't look weird animating
   document.querySelector('.sidebar').style.fontSize = "0"
 
@@ -165,8 +168,10 @@ function showSidebar() {
     if (counter >= 1) {
       gridDiv.style.gridTemplateColumns = `repeat(5, 1fr)`;
       // Show text in sidebar
-      document.querySelector('.sidebar').style.fontSize = "1em"
+      document.querySelector('.sidebar').style.fontSize = "1em";
       document.querySelector('.content').style.display = 'block';
+      //Show side pagination
+      document.querySelector('.pagination.side').style.display = 'block';
       clearInterval(animation);
     } else {
       counter += interval;
